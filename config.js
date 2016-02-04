@@ -3,5 +3,7 @@ module.exports = [
     'cookie/getCookie',
     'cookie/setCookie',
     'cookie/deleteCookie',
-    'monetary/brMoneyFormat'
+    'monetary/brMoneyFormat',
+    'string/base64Encode',
+    'string/base64Decode'
 ];
