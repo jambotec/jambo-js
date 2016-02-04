@@ -1,7 +1,6 @@
     /**
      * Default ajax request.
      *
-     * @author Andrew C. Pacifico <andrecwpacifico@gmail.com>
      * @method ajax
      * @param {Object} options A set of key/value pairs that configure 
      *          the Ajax request. 

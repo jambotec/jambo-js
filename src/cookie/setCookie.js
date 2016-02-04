@@ -1,7 +1,6 @@
     /**
      * Sets a cookie value.
      *
-     * @author Andrew C. Pacifico <andrewcpacifico@gmail.com>
      * @method setCookie
      * @param {String} cname The name of the cookie
      * @param {String} cvalue The value to set

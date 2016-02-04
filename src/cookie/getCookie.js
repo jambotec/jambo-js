@@ -1,7 +1,6 @@
     /**
      * Return the value stored on page cookies.
      *
-     * @author Andrew C. Pacifico <andrewcpacifico@gmail.com>
      * @method getCookie
      * @param {String} cname The name of the cookie to get.
      * @return {String} The store value. If no value was found, an empty string
