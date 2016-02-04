@@ -6,6 +6,6 @@
      * @param {String} host The cookie host.
      * @return {Void}
      */
-    cm.deleteCookie = function (name, host) {
+    jambo.deleteCookie = function (name, host) {
         this.setCookie(name, '', -1, '/', host);
     };
