@@ -5,7 +5,6 @@
     /**
      * Default ajax request.
      *
-     * @author Andrew C. Pacifico <andrecwpacifico@gmail.com>
      * @method ajax
      * @param {Object} options A set of key/value pairs that configure 
      *          the Ajax request. 
@@ -98,7 +97,6 @@
     /**
      * Return the value stored on page cookies.
      *
-     * @author Andrew C. Pacifico <andrewcpacifico@gmail.com>
      * @method getCookie
      * @param {String} cname The name of the cookie to get.
      * @return {String} The store value. If no value was found, an empty string
@@ -119,6 +117,44 @@
         }
 
         return "";
+    };
+
+    /**
+     * Sets a cookie value.
+     *
+     * @method setCookie
+     * @param {String} cname The name of the cookie
+     * @param {String} cvalue The value to set
+     * @param {Object} options A key value pair set with method settings.
+     * @param {String} options.domain The domain to set.
+     * @param {String} options.path The path to set.
+     * @return {Void}
+     */
+    jambo.setCookie = function (cname, cvalue, options) {
+        document.cookie = 
+            cname + '=' + cvalue +
+            (
+                options.domain !== undefined ? 
+                    '; domain=' + options.domain : 
+                    ''
+            ) +
+            (
+                options.path !== undefined ? 
+                    '; path=' + options.path : 
+                    ''
+            );
+    };
+
+    /**
+     * Deletes a page cookie.
+     *
+     * @method deleteCookie
+     * @param {String} name The cookie name.
+     * @param {String} host The cookie host.
+     * @return {Void}
+     */
+    jambo.deleteCookie = function (name, host) {
+        this.setCookie(name, '', -1, '/', host);
     };
 
     /**
