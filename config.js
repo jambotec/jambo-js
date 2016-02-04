@@ -1,3 +1,4 @@
 module.exports = [
-    'ajax/ajax'
+    'ajax/ajax',
+    'monetary/brMoneyFormat'
 ];

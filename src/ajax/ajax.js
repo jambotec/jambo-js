@@ -26,12 +26,12 @@
         var requestData = (typeof options.data === 'object') ? options.data : {};
 
         var requestMethod = (
-                options.type === undefined ||
-                (
-                 options.type.toUpperCase() !== 'GET' &&
-                 options.type.toUpperCase() !== 'POST'
-                )
-                ) ? 'GET' : options.type.toUpperCase();
+            options.type === undefined ||
+            (
+                options.type.toUpperCase() !== 'GET' &&
+                options.type.toUpperCase() !== 'POST'
+            )
+        ) ? 'GET' : options.type.toUpperCase();
 
         if (typeof options.url !== 'string' && options.url === '') {
             return;
