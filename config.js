@@ -5,5 +5,6 @@ module.exports = [
     'cookie/deleteCookie',
     'monetary/brMoneyFormat',
     'string/base64Encode',
-    'string/base64Decode'
+    'string/base64Decode',
+    'ui/modal'
 ];
