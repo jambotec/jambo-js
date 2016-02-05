@@ -10,6 +10,8 @@
      * @return {Void}
      */
     jambo.setCookie = function (cname, cvalue, options) {
+        options = options || {};
+
         document.cookie = 
             cname + '=' + cvalue +
             (
