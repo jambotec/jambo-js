@@ -356,6 +356,8 @@
         this.layer = null;
     };
 
+    jambo.Modal = self;
+
 })(window, document, undefined, jambo);
 
     window.jambo = jambo;
