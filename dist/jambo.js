@@ -356,7 +356,7 @@
         this.layer = null;
     };
 
-    jambo.Modal = self;
+    jambo.Modal = Modal;
 
 })(window, document, undefined, jambo);
 
