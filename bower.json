@@ -1,0 +1,26 @@
+{
+  "name": "jambo-js",
+  "description": "A Customizable Javascript Framework.",
+  "main": "dist/jambo.js",
+  "authors": [
+    "Andrew C. Pacifico <andrewcpacifico@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "javascript",
+    "framework",
+    "jambo",
+    "customizable"
+  ],
+  "homepage": "https://github.com/jambotec/jambo-js",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
