@@ -1,4 +1,6 @@
 # jambo-js
 
-A Javascript framework that have all features that you need! 
-But just what you need!
+A Customizable Javascript framework. For those who want to save as many bytes 
+as possible.
+
+Lead Maintainer: [Andrew C. Pacifico](github.com/andrewcpacifico)
