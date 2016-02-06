@@ -45,16 +45,16 @@
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 var responseData;
 
-                if(xhr.status == 200) {
+                try {
+                    responseData = JSON.parse(xhr.responseText);
+                } catch(e) {
+                    responseData = xhr.responseText;
+                }
+
+                if(xhr.status === 200) {
                     var success = (typeof options.success === 'function') ?
                         options.success :
                         function(data) {};
-
-                    try {
-                        responseData = JSON.parse(xhr.responseText);
-                    } catch(e) {
-                        responseData = xhr.responseText;
-                    }
 
                     // success callback execute only when the request have 200
                     // status
