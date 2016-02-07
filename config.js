@@ -6,5 +6,7 @@ module.exports = [
     'monetary/brMoneyFormat',
     'string/base64Encode',
     'string/base64Decode',
-    'ui/modal'
+    'ui/modal',
+    'ui/addClass',
+    'ui/removeClass'
 ];
