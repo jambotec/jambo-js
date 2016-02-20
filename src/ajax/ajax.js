@@ -61,7 +61,7 @@
                         function(data) {};
 
                     // when a error occurs run the error callback
-                    error();
+                    error(responseData);
                 }
 
                 // always execute the callback
