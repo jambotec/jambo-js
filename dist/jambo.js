@@ -319,14 +319,13 @@ jambo.deleteCookie = function (cname, options) {
             divWrapper.className += ' ' + options.class;
         }
 
-        if (options.contentDiv === undefined) {
-            // creates the container where the title is placed
-            var divTitle = document.createElement('div');
-            divTitle.className = 'modal-title';
-            divTitle.innerHTML = 
-                (options.title !== undefined ? options.title : '');
-            divWrapper.appendChild(divTitle);
+        // creates the container where the title is placed
+        var divTitle = document.createElement('div');
+        divTitle.className = 'modal-title';
+        divTitle.innerHTML = (options.title !== undefined ? options.title : '');
+        divWrapper.appendChild(divTitle);
 
+        if (options.contentDiv === undefined) {
             // creates the container where the message is placed
             var divContent = document.createElement('div');
             divContent.className = 'modal-message';
