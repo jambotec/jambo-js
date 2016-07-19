@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/jambotec/jambo-js#readme",
   "dependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "promise-polyfills": "^7.0.4"
   },
   "devDependencies": {
     "grunt-contrib-concat": "^0.5.1",
