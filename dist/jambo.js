@@ -425,20 +425,32 @@ if (typeof Promise.prototype.done !== 'function') {
  *          It is converted to a query string. 
  * @return {Promise}
  */
-jambo.ajax = function (options) {  
+jambo.ajax = function (options) {
   var requestData = (typeof options.data === 'object') ? options.data : {};
 
   var requestMethod = (
     options.method === undefined ||
     (
       options.method.toUpperCase() !== 'GET' &&
-      options.method.toUpperCase() !== 'POST'
+      options.method.toUpperCase() !== 'POST' &&
+      options.method.toUpperCase() !== 'PUT' &&
+      options.method.toUpperCase() !== 'DELETE'
     )
   ) ? 'GET' : options.method.toUpperCase();
 
   if (typeof options.url !== 'string' && options.url === '') {
     return;
   }
+
+  // encode request data
+  var query = [];
+  for (var param in requestData) {
+    query.push(param + '=' + encodeURIComponent(requestData[param]));
+  }
+  var encodedData = query.join('&');
+  var url = (requestMethod !== 'GET' || encodedData === '') ?
+    options.url :
+    options.url + (options.url.indexOf('?') >= 0 ? '&' : '?') + encodedData;
 
   return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
@@ -452,28 +464,24 @@ jambo.ajax = function (options) {
           responseData = xhr.responseText;
         }
 
-        if (xhr.status === 200) {                    
+        if (xhr.status >= 200 && xhr.status <= 299) {
+          var success = (typeof options.success === 'function') ?
+            options.success :
+            function (data) { };
+          
           resolve(responseData);
-        } else {          
+        } else {
+          var error = (typeof options.error === 'function') ?
+            options.error :
+            function (data) { };
+          
           reject(responseData);
         }        
       }
-    };
-
-    // encode request data
-    var query = [];
-    for (var param in requestData) {
-      query.push(param + '=' + encodeURIComponent(requestData[param]));
-    }
-    var encodedData = query.join('&');
-    var url = (requestMethod === 'POST' || encodedData === '') ?
-      options.url :
-      options.url +
-      (options.url.indexOf('?') >= 0 ? '&' : '?') +
-      encodedData;
+    };    
 
     xhr.open(requestMethod, url, true);
-    if (requestMethod === 'POST') {
+    if (requestMethod !== 'GET') {
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(encodedData);
     } else {
@@ -583,6 +591,28 @@ jambo.deleteCookie = function (cname, options) {
 
         return 'R$ ' +  intPart + ',' + cents;
     };
+
+jambo.deepExtend = function(out) {
+  out = out || {};
+
+  for (var i = 1; i < arguments.length; i++) {
+    var obj = arguments[i];
+
+    if (!obj)
+      continue;
+
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        if (typeof obj[key] === 'object')
+          out[key] = jambo.deepExtend(out[key], obj[key]);
+        else
+          out[key] = obj[key];
+      }
+    }
+  }
+
+  return out;
+};
 
     /**
      * Encodes a string using base64 algorithm.
